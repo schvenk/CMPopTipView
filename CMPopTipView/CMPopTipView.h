@@ -92,6 +92,7 @@ typedef enum {
     PointDirectionAny = 0,
 	PointDirectionUp,
 	PointDirectionDown,
+    PointDirectionNone
 } PointDirection;
 
 typedef enum {
@@ -124,6 +125,9 @@ typedef enum {
 @property (nonatomic, assign)           CGFloat                 cornerRadius;
 @property (nonatomic, assign)			CGFloat					borderWidth;
 @property (nonatomic, assign)           BOOL                    hasShadow;
+@property (nonatomic, assign)           CGFloat                 shadowDistance;
+@property (nonatomic, assign)           CGFloat                 shadowRadius;
+@property (nonatomic, assign)           CGFloat                 shadowAlpha;
 @property (nonatomic, assign)           CMPopTipAnimation       animation;
 @property (nonatomic, assign)           CGFloat                 maxWidth;
 @property (nonatomic, assign)           PointDirection          preferredPointDirection;
@@ -139,6 +143,7 @@ typedef enum {
 
 - (void)presentPointingAtView:(UIView *)targetView inView:(UIView *)containerView animated:(BOOL)animated;
 - (void)presentPointingAtBarButtonItem:(UIBarButtonItem *)barButtonItem animated:(BOOL)animated;
+- (void)presentInView:(UIView*)containerView animated:(BOOL)animated;
 - (void)dismissAnimated:(BOOL)animated;
 - (void)autoDismissAnimated:(BOOL)animated atTimeInterval:(NSTimeInterval)timeInvertal;
 - (PointDirection) getPointDirection;
